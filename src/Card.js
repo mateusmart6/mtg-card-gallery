@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 const Card = ({ cardData }) => {
   if (!cardData) {
@@ -8,11 +7,16 @@ const Card = ({ cardData }) => {
 
   return (
     <div className="card">
-      <h2>{cardData.name}</h2>
-      <img src={cardData.image_uris.normal} alt={cardData.name} />
-      <p>{cardData.mana_cost}</p>
-      <p>{cardData.type_line}</p>
-      {/* Add more properties as needed */}
+      <img
+        src={cardData.image_uris.normal}
+        alt={cardData.name}
+        style={{
+          width: '100%', // Set width to 100% of the card container
+          height: 'auto', // Allow height to adjust based on image aspect ratio
+        }}
+      />
+      {/* Removed the <h2> element for card name */}
+      {/* Add more properties as needed for image display */}
     </div>
   );
 };

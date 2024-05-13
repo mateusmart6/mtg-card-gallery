@@ -1,5 +1,5 @@
 {
-  "name": "magic-the-gathering",
+  "name": "mtg-card-gallery",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -3,6 +3,10 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+  background-image: url('https://i.pinimg.com/originals/79/44/9d/79449de3ab2d49756d54be57bdc8cede.jpg');
+  background-size: cover; /* Optional: Scale image to cover the entire background */
+  background-repeat: no-repeat; /* Optional: Prevent image tiling */
+  color: white; /* Set font color to white */
 }
 
 .App {
@@ -12,28 +16,15 @@ body {
   padding: 20px;
 }
 
-/* Search bar styles */
-.search-form {
-  display: flex;
-  width: 100%;
-  margin-bottom: 20px;
+.search-box {
+  height: 40px; /* Adjust height as desired */
+  width: 100%; /* Maintain full width */
 }
 
-.search-form input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.search-box input {
+  height: 40px; /* Match container height */
 }
 
-.search-form button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #333;
-  color: #fff;
-  cursor: pointer;
-}
 
 /* Card list styles */
 .card-list {
