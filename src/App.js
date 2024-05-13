@@ -1,11 +1,13 @@
 import React from 'react';
-import EarthImagery from './EarthImagery';
+import Search from './Search';
+import './App.css'; // Import the CSS file
+
 
 const App = () => {
   return (
-    <div>
-      <h1>My Space App</h1>
-      <EarthImagery />
+    <div className="App">
+      <h1>Magic the Gathering Card Search</h1>
+      <Search />
     </div>
   );
 };
