@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Card from './Card'; // Import the Card component
+import axios from 'axios'; // Import axios here
+
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
