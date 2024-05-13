@@ -3,15 +3,16 @@ import React from 'react';
 import Search from './Search';
 import './App.css';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        {/* Your app content goes here */}
-        <Search />
-      </div>
-    );
-  }
-}
+return <BrowserRouter>
+<div className="App">
+<Routes>
+     
+    <Route exact path="/" element={ <Home /> } />
+    <Route exact path="startcreating" element={ <Start /> } />
+    <Route exact path="aboutus" element={ <About /> } />
+    {/* <Route path="signup" element={ <SignUpModel /> } /> */}
+</Routes> 
+</div>
+</BrowserRouter>;
 
 export default App;
