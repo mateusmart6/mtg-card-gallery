@@ -4,87 +4,97 @@ import Card from './Card'; // Import the Card component
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  // Use the fetched card data
-  const [cardData, setCardData] = useState([]); // Use a more descriptive name
-  const [errorMessage, setErrorMessage] = useState(null); // State for error message
+  const [cardData, setCardData] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [searchTerms, setSearchTerms] = useState([]); // State to store search terms
+
+  useEffect(() => {
+    // Fetch search terms from Scryfall's autocomplete API
+    axios.get(`https://api.scryfall.com/cards/autocomplete?q=${searchTerm}`)
+      .then(response => {
+        setSearchTerms(response.data.data); // Set fetched search terms to state
+      })
+      .catch(error => {
+        console.error('Error fetching search terms:', error);
+      });
+  }, [searchTerm]); // Runs whenever searchTerm changes
 
   const handleSearch = async (e) => {
     e.preventDefault();
 
     if (!searchTerm.trim()) {
-      setCardData([]); // Clear card data if search term is empty or only whitespace
+      setCardData([]);
       return;
     }
 
-    const formattedTerm = searchTerm; // No color filter applied
+    // Check if searchTerms has data before iterating
+    if (searchTerms.length > 0) {
+      try {
+        for (const cardName of searchTerms) {
+          const delay = Math.random() * 50 + 50;
+          await new Promise((resolve) => setTimeout(resolve, delay));
 
-    try {
-      for (const cardName of searchTerms) { // Assuming you have an array of search terms
-        const delay = Math.random() * 50 + 50; // Generate random delay between 50-100ms
-        await new Promise((resolve) => setTimeout(resolve, delay)); // Wait for the delay
-
-        const response = await axios.get(`https://api.scryfall.com/cards/search?q=${cardName}&format=image`, {
-          headers: {
-            'Origin': window.location.origin, // Set Origin to your app's domain
-          },
-        });
-        if (response.status === 200) {
-          const data = response.data.data;
-          setCardData((prevData) => [...prevData, data]); // Update card data state
-          setErrorMessage(null); // Clear any previous error message
+          const response = await axios.get(`https://api.scryfall.com/cards/search?q=${cardName}&format=image`, {
+            headers: {
+              'Origin': window.location.origin,
+            },
+          });
+          if (response.status === 200) {
+            const data = response.data.data;
+            setCardData((prevData) => [...prevData, ...data]); // Update card data with new results
+            setErrorMessage(null);
+          } else {
+            console.error('Unexpected API error:', response.statusText);
+          }
+        }
+      } catch (error) {
+        if (error.response && error.response.status === 404) {
+          setErrorMessage('No results found for your search term.');
         } else {
-          // Handle potential non-404 errors here (optional)
-          console.error('Unexpected API error:', response.statusText);
+          console.error('Error fetching cards:', error);
         }
       }
-    } catch (error) {
-      if (error.response && error.response.status === 404) {
-        setErrorMessage('No results found for your search term.'); // Set error message for 404
-      } else {
-        // Handle other potential errors (optional)
-        console.error('Error fetching cards:', error);
-      }
+    } else {
+      // Handle the case where searchTerms is empty
+      console.warn('No search terms available yet. Try typing something to search.');
     }
   };
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      // Clear search term after some delay (optional)
-      setSearchTerm(''); // Set search term to empty string
-    }, 500); // Adjust timeout delay as needed
+      setSearchTerm('');
+    }, 500);
 
-    return () => clearTimeout(timeoutId); // Cleanup function for timeout
-  }, []); // Runs only once on initial render
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}> {/* Center the content vertically and horizontally */}
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <div>
         <h1>MGT Card Gallery</h1>
         <form onSubmit={handleSearch}>
-          <div className="search-box"> {/* New container for styling */}
+          <div className="search-box">
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search Magic the Gathering Cards"
               style={{
-                width: '400px', // Adjust width as desired
-                height: '30px', // Adjust height as desired
-                padding: '15px', // Adjust padding as needed
-                border: '1px solid #ccc', // Gray border
-                borderRadius: '5px', // Rounded corners
+                width: '400px',
+                height: '30px',
+                padding: '15px',
+                border: '1px solid #ccc',
+                borderRadius: '5px',
                 fontSize: '16px',
                 backgroundColor: 'transparent',
-                color: '#fff', // White text color
+                color: '#fff',
               }}
             />
           </div>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
-        {/* Conditionally render cards based on cardData */}
         {cardData.length > 0 && (
           <div className="card-list">
-            {/* Display cards using the Card component */}
             {cardData.map((card) => (
               <Card key={card.id} cardData={card} />
             ))}

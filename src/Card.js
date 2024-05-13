@@ -1,22 +1,24 @@
 import React from 'react';
 
 const Card = ({ cardData }) => {
-  if (!cardData) {
-    return <div>Loading...</div>;
+  // Check if cardData exists and has the necessary property
+  if (!cardData || !cardData.image_uris || !cardData.image_uris.normal) {
+    return (
+      <div>
+        {/* Render a placeholder or error message */}
+        <p>Invalid card data</p>
+      </div>
+    );
   }
 
+  // If cardData is valid, render the image with object-fit
   return (
     <div className="card">
       <img
         src={cardData.image_uris.normal}
         alt={cardData.name}
-        style={{
-          width: '100%', // Set width to 100% of the card container
-          height: 'auto', // Allow height to adjust based on image aspect ratio
-        }}
+        style={{ width: '100%', height: 'auto', objectFit: 'cover' }} // Set object-fit
       />
-      {/* Removed the <h2> element for card name */}
-      {/* Add more properties as needed for image display */}
     </div>
   );
 };
