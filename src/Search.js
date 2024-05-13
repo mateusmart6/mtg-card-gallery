@@ -21,7 +21,7 @@ const Search = () => {
     try {
       const response = await axios.get(`https://api.scryfall.com/cards/search?q=${formattedTerm}&format=image`, {
         headers: {
-          'Origin': window.location.origin, // Set Origin to your app's domain
+          'Origin': window.location.https://mateusmart6.github.io/mtg-card-gallery/, // Set Origin to your app's domain
         },
       });
       if (response.status === 200) {
