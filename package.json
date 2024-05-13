@@ -1,6 +1,6 @@
 {
   "name": "mtg-card-gallery",
-  "homepage": "https://github.com/mateusmart6/mtg-card-gallery",
+  "homepage": "https://mateusmart6.github.io/mtg-card-gallery",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
