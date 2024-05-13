@@ -10,27 +10,32 @@ const Search = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-  
+
     if (!searchTerm.trim()) {
       setCardData([]); // Clear card data if search term is empty or only whitespace
       return;
     }
-  
+
     const formattedTerm = searchTerm; // No color filter applied
-  
+
     try {
-      const response = await axios.get(`https://api.scryfall.com/cards/search?q=${formattedTerm}&format=image`, {
-        headers: {
-          'Origin': window.location.origin, // Set Origin to your app's domain
-        },
-      });
-      if (response.status === 200) {
-        const data = response.data.data;
-        setCardData(data); // Update card data state
-        setErrorMessage(null); // Clear any previous error message
-      } else {
-        // Handle potential non-404 errors here (optional)
-        console.error('Unexpected API error:', response.statusText);
+      for (const cardName of searchTerms) { // Assuming you have an array of search terms
+        const delay = Math.random() * 50 + 50; // Generate random delay between 50-100ms
+        await new Promise((resolve) => setTimeout(resolve, delay)); // Wait for the delay
+
+        const response = await axios.get(`https://api.scryfall.com/cards/search?q=${cardName}&format=image`, {
+          headers: {
+            'Origin': window.location.origin, // Set Origin to your app's domain
+          },
+        });
+        if (response.status === 200) {
+          const data = response.data.data;
+          setCardData((prevData) => [...prevData, data]); // Update card data state
+          setErrorMessage(null); // Clear any previous error message
+        } else {
+          // Handle potential non-404 errors here (optional)
+          console.error('Unexpected API error:', response.statusText);
+        }
       }
     } catch (error) {
       if (error.response && error.response.status === 404) {
