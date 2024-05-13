@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mateusmart6/mtg-card-gallery/static/css/main.ef2c8881.css",
+    "main.js": "/mateusmart6/mtg-card-gallery/static/js/main.50f84ecc.js",
+    "static/js/453.77c2abf5.chunk.js": "/mateusmart6/mtg-card-gallery/static/js/453.77c2abf5.chunk.js",
+    "index.html": "/mateusmart6/mtg-card-gallery/index.html",
+    "main.ef2c8881.css.map": "/mateusmart6/mtg-card-gallery/static/css/main.ef2c8881.css.map",
+    "main.50f84ecc.js.map": "/mateusmart6/mtg-card-gallery/static/js/main.50f84ecc.js.map",
+    "453.77c2abf5.chunk.js.map": "/mateusmart6/mtg-card-gallery/static/js/453.77c2abf5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ef2c8881.css",
+    "static/js/main.50f84ecc.js"
+  ]
+}
