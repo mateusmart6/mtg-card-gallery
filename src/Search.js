@@ -10,16 +10,20 @@ const Search = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-
+  
     if (!searchTerm.trim()) {
       setCardData([]); // Clear card data if search term is empty or only whitespace
       return;
     }
-
+  
     const formattedTerm = searchTerm; // No color filter applied
-
+  
     try {
-      const response = await axios.get(`https://api.scryfall.com/cards/search?q=${formattedTerm}&format=image`);
+      const response = await axios.get(`https://api.scryfall.com/cards/search?q=${formattedTerm}&format=image`, {
+        headers: {
+          'Origin': window.location.origin, // Set Origin to your app's domain
+        },
+      });
       if (response.status === 200) {
         const data = response.data.data;
         setCardData(data); // Update card data state
