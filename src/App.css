@@ -16,10 +16,6 @@ body {
   padding: 20px;
 }
 
-.search-container {
-  /* Default styles */
-}
-
 /* Styles for screens smaller than 768px */
 @media only screen and (max-width: 768px) {
   .search-container {
