@@ -16,6 +16,19 @@ body {
   padding: 20px;
 }
 
+.search-container {
+  /* Default styles */
+}
+
+/* Styles for screens smaller than 768px */
+@media only screen and (max-width: 768px) {
+  .search-container {
+    /* Styles for small screens */
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
 .search-box {
   height: 40px; /* Adjust height as desired */
   width: 100%; /* Maintain full width */
