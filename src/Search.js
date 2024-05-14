@@ -69,9 +69,9 @@ const Search = () => {
   }, []);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <div>
-        <h1>MGT Card Gallery</h1>
+      <h1>MGT Card Gallery</h1>
         <form onSubmit={handleSearch}>
           <div className="search-box">
             <input

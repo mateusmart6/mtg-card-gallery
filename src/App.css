@@ -1,3 +1,4 @@
+/* General styles */
 body {
   font-family: sans-serif;
   margin: 0;
@@ -15,7 +16,17 @@ body {
   padding: 20px;
 }
 
-/* Styles for all screen sizes */
+.search-box {
+  height: 40px; /* Adjust height as desired */
+  width: 100%; /* Maintain full width */
+}
+
+.search-box input {
+  height: 40px; /* Match container height */
+}
+
+
+/* Card list styles */
 .card-list {
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +34,7 @@ body {
 }
 
 .card {
-  width: calc(33% - 20px); /* Adjust width using calc() for responsiveness */
+  width: 300px;
   margin: 10px;
   padding: 15px;
   border: 1px solid #ddd;
@@ -33,26 +44,7 @@ body {
 
 .card img {
   width: 100%;
-  height: 200px; /* Adjust height as needed */
+  /* Adjust height as needed */
+  height: 200px;
   object-fit: cover; /* Optional: Scale image to fit card */
-}
-
-/* Styles for screens smaller than 768px in portrait mode */
-@media only screen and (max-width: 768px) and (orientation: portrait) {
-  .App {
-    padding: 10px;  /* Reduce padding for smaller viewports */
-  }
-
-  .search-container { /* Styles for small screens */
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  .search-box {
-    height: 40px; /* Adjust height as desired */
-  }
-
-  .search-box input {
-    height: 40px; /* Match container height */
-  }
 }
