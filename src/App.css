@@ -1,3 +1,9 @@
+/* Global styles for the body */
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
 .App {
   text-align: center;
   padding: 20px;
@@ -39,11 +45,6 @@
   }
 }
 
-body {
-  margin: 0;
-  overflow-x: hidden;
-}
-
 /* Media Queries for Responsive Design */
 
 /* For tablets and below */
@@ -72,4 +73,3 @@ body {
   .App {
     padding: 10px;
   }
-}
