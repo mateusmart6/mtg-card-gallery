@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './Card'; // Import the Card component
+import './App.css';
+
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
