@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mtg-card-gallery/static/css/main.ef2c8881.css",
-    "main.js": "/mtg-card-gallery/static/js/main.b3894b9a.js",
-    "static/js/453.77c2abf5.chunk.js": "/mtg-card-gallery/static/js/453.77c2abf5.chunk.js",
+    "main.js": "/mtg-card-gallery/static/js/main.fac8cfa9.js",
+    "static/js/488.cb607a04.chunk.js": "/mtg-card-gallery/static/js/488.cb607a04.chunk.js",
     "index.html": "/mtg-card-gallery/index.html",
     "main.ef2c8881.css.map": "/mtg-card-gallery/static/css/main.ef2c8881.css.map",
-    "main.b3894b9a.js.map": "/mtg-card-gallery/static/js/main.b3894b9a.js.map",
-    "453.77c2abf5.chunk.js.map": "/mtg-card-gallery/static/js/453.77c2abf5.chunk.js.map"
+    "main.fac8cfa9.js.map": "/mtg-card-gallery/static/js/main.fac8cfa9.js.map",
+    "488.cb607a04.chunk.js.map": "/mtg-card-gallery/static/js/488.cb607a04.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ef2c8881.css",
-    "static/js/main.b3894b9a.js"
+    "static/js/main.fac8cfa9.js"
   ]
 }
